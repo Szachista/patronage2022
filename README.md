@@ -24,6 +24,10 @@ W systemie Linux użyj polecenia:
 
 ## Przykłady wysyłania żądań za pomocą polecenia curl
 
+Chcąc dodać nowy podmiot o nazwie "podmiot" należy wywołać polecenie:
+
+> curl -X POST -H "Content-Type: application/json" -d '{"subjectName": "podmiot"}' localhost:8080/carpark/signup
+
 Chcąc dodać rezerwację dla podmiotu o identyfikatorze 3 i miejsca parkingowego o identyfikatorze 5 należy wywołać polecenie:
 
 > curl -X POST -H "Content-Type: application/json" -d '{"spaceId": 5, "subjectId": 3}' localhost:8080/carpark/reservations

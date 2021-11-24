@@ -21,4 +21,6 @@ public interface ParkingSpaceRepository extends CrudRepository<ParkingSpace, Int
 
     @Query(value = "SELECT S.SPACE_ID, S.SPACE_LEVEL, S.SPACE_NUMBER, S.FOR_DISABLED FROM PARKING_SPACE S LEFT JOIN RESERVATION R ON S.SPACE_ID = R.SPACE_ID WHERE SUBJECT_ID = ?1", nativeQuery = true)
     public List<ParkingSpace> findBySubjectId(Integer subjectId);
+
+    public ParkingSpace findBySpaceId(Integer spaceId);
 }

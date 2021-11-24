@@ -4,6 +4,7 @@
  */
 package com.patronage.edition_2022;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 public class Reservation {
     @Id
     private Integer spaceId;
+ 
+    @Column(nullable = false)
     private Integer subjectId;
 
     public Integer getSpaceId() {

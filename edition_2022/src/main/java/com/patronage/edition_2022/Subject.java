@@ -4,6 +4,7 @@
  */
 package com.patronage.edition_2022;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,8 @@ public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer subjectId;
+
+    @Column(unique = true, nullable = false, length = 20)
     private String subjectName;
 
     public Integer getSubjectId() {

@@ -13,4 +13,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface SubjectRepository extends CrudRepository<Subject, Integer> {
 
     public Subject findBySubjectId(Integer subjectId);
+
+    public Subject findBySubjectNameIgnoreCase(String subjectName);
 }

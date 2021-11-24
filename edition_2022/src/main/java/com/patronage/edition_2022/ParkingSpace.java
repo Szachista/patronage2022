@@ -4,13 +4,11 @@
  */
 package com.patronage.edition_2022;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -22,8 +20,14 @@ public class ParkingSpace {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer spaceId;
+
+    @Column(nullable = false)
     private Integer spaceNumber;
+
+    @Column(nullable = false)
     private Integer spaceLevel;
+
+    @Column(nullable = false)
     private Boolean forDisabled;
 
     public ParkingSpace() {
