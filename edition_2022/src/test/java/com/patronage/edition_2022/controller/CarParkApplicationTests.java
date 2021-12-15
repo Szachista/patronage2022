@@ -1,5 +1,9 @@
-package com.patronage.edition_2022;
+package com.patronage.edition_2022.controller;
 
+import com.patronage.edition_2022.CarParkApplication;
+import com.patronage.edition_2022.dto.SubjectDTO;
+import com.patronage.edition_2022.model.Subject;
+import com.patronage.edition_2022.model.Reservation;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +33,9 @@ class CarParkApplicationTests {
 
     @Test
     public void signUpWithEmptySubjectNameShouldFail() {
-        Subject subject = new Subject();
+        SubjectDTO subject = new SubjectDTO();
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:" + port + "/carpark/signup", subject, String.class);
+        System.err.println(response.toString());
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.BAD_REQUEST);
     }
 
@@ -39,6 +44,7 @@ class CarParkApplicationTests {
         Subject subject = new Subject();
         subject.setSubjectName("\n \t\r");
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:" + port + "/carpark/signup", subject, String.class);
+        System.err.println(response.toString());
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.BAD_REQUEST);
     }
 
@@ -47,6 +53,7 @@ class CarParkApplicationTests {
         Subject subject = new Subject();
         subject.setSubjectName("J");
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:" + port + "/carpark/signup", subject, String.class);
+        System.err.println(response.toString());
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.BAD_REQUEST);
     }
 
@@ -55,6 +62,7 @@ class CarParkApplicationTests {
         Subject subject = new Subject();
         subject.setSubjectName("Zachodniopomorski Uniwersytet Technologiczny w Szczecinie");
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:" + port + "/carpark/signup", subject, String.class);
+        System.err.println(response.toString());
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.BAD_REQUEST);
     }
 
@@ -63,6 +71,7 @@ class CarParkApplicationTests {
         Subject subject = new Subject();
         subject.setSubjectName("Szczeciński");
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:" + port + "/carpark/signup", subject, String.class);
+        System.err.println(response.toString());
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.BAD_REQUEST);
     }
 
